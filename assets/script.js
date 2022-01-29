@@ -14,16 +14,18 @@ function date_time() {
 //Timetable color changer
 //Adding css class to element
 var addPast = document.getElementById('timetable');
-addClass.className += " past";
+addPast.className += " past";
 
 var addPresent = document.getElementById('timetable');
-addClass.className += " present";
+addPresent.className += " present";
 
 var addFuture = document.getElementById('timetable');
-addClass.className += " future";
+addFuture.className += " future";
 
+if (dateMonthAsWord == date) {
+    addPresent;
+}
 //
-
 
 
 
