@@ -5,28 +5,38 @@ console.log(dateMonthAsWord);
 
 //Timer
 function date_time() {
-    now = moment().format('MMMM Do YYYY, h:mm a');
+    now = moment().format('MMMM Do YYYY, h:mm:ss a');
     document.getElementById('timer').innerHTML = now;
-    setTimeout(function () { date_time(); }, 1000);
+    // setTimeout(function () { date_time(); }, 1000);
   }
-  date_time();  
+  setInterval(date_time);
+
 
 //Timetable color changer
-//Adding css class to element
-var addPast = document.getElementById('timetable');
-addPast.className += " past";
 
-var addPresent = document.getElementById('timetable');
-addPresent.className += " present";
+//Change background by time
+var checkTheTime = function() {
+    var hourBlocks = $(".time-block");
+    
+    for (var i = 0 ; i < hourBlocks.length ; i++) {
+        var elementID = hourBlocks[i].id;
+        var changeClass = document.getElementById(hourBlocks[i].id)
+        
+        $(hourBlocks[i].id).removeClass('.past .present .future');
 
-var addFuture = document.getElementById('timetable');
-addFuture.className += " future";
-
-if (dateMonthAsWord == date) {
-    addPresent;
+        if (elementID < date) {
+            $(changeClass).addClass("past");
+        } else if (elementID > date) {
+            $(changeClass).addClass("future")
+        } else {
+            $(changeClass).addClass("present");
+        }
+    }
 }
-//
+//Refresh to update backgroundcolor
+setInterval(checkTheTime(), (1000 * 60) * 15);
 
+//
 
 
 //Show/Hide Save Button
@@ -36,3 +46,13 @@ if (dateMonthAsWord == date) {
         $("button").show();
     });
 });
+
+// //
+// var saveButton = document.querySelector("#time-container");
+// if (window.localStorage["TextEditorData"]) {
+//     // console.log("Test")
+//       saveButton.value = window.localStorage["TextEditorData"];
+// }    
+// saveButton.addEventListener("keyup", function() {
+// window.localStorage["TextEditorData"] = saveButton.value;
+// });
