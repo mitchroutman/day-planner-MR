@@ -11,7 +11,23 @@ function date_time() {
   }
   date_time();  
 
+//Timetable color changer
+//Adding css class to element
+var addPast = document.getElementById('timetable');
+addClass.className += " past";
 
+var addPresent = document.getElementById('timetable');
+addClass.className += " present";
+
+var addFuture = document.getElementById('timetable');
+addClass.className += " future";
+
+//
+
+
+
+
+//Show/Hide Save Button
 /* On load - button hidden. On click of text area show btn*/
   $(document).ready(function(){
     $("textarea").focus(function(){
