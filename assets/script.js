@@ -1,4 +1,7 @@
 console.log("JS linked");
+var date = moment().format('h:mm a');
+var dateMonthAsWord = moment().format('h:mm a');
+console.log(dateMonthAsWord);
 
 //Timer
 function date_time() {
@@ -6,7 +9,7 @@ function date_time() {
     document.getElementById('timer').innerHTML = now;
     setTimeout(function () { date_time(); }, 1000);
   }
-  date_time();
+  date_time();  
 
 
 /* On load - button hidden. On click of text area show btn*/
