@@ -1,4 +1,4 @@
-console.log("JS linked");
+//console.log("JS linked");
 var date = moment().format('h:mm a');
 var dateMonthAsWord = moment().format('h:mm a');
 console.log(dateMonthAsWord);
@@ -11,18 +11,17 @@ function date_time() {
   }
   setInterval(date_time);
 
-
-//Timetable color changer
+//
 
 //Change background by time
 var checkTheTime = function() {
-    var hourBlocks = $(".time-block");
+    var timeBlock = $("#time-container");         
     
-    for (var i = 0 ; i < hourBlocks.length ; i++) {
-        var elementID = hourBlocks[i].id;
-        var changeClass = document.getElementById(hourBlocks[i].id)
+    for (var i = 0 ; i < timeBlock.length ; i++) {
+        var elementID = timeBlock[i].id;
+        var changeClass = document.getElementById(timeBlock[i].id)
         
-        $(hourBlocks[i].id).removeClass('.past .present .future');
+        $(timeBlock[i].id).removeClass('.past .present .future');
 
         if (elementID < date) {
             $(changeClass).addClass("past");
@@ -33,7 +32,6 @@ var checkTheTime = function() {
         }
     }
 }
-//Refresh to update backgroundcolor
 setInterval(checkTheTime(), (1000 * 60) * 15);
 
 //
@@ -47,12 +45,12 @@ setInterval(checkTheTime(), (1000 * 60) * 15);
     });
 });
 
-// //
-// var saveButton = document.querySelector("#time-container");
-// if (window.localStorage["TextEditorData"]) {
-//     // console.log("Test")
-//       saveButton.value = window.localStorage["TextEditorData"];
-// }    
-// saveButton.addEventListener("keyup", function() {
-// window.localStorage["TextEditorData"] = saveButton.value;
-// });
+//
+var saveButton = document.querySelector("#time-container");
+if (window.localStorage["textarea"]) {
+    // console.log("Test")
+      saveButton.value = window.localStorage["textarea"];
+}    
+saveButton.addEventListener("keyup", function() {
+window.localStorage["textarea"] = saveButton.value;
+});
