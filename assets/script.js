@@ -16,13 +16,10 @@ function date_time() {
 //Change background by time
 var checkTheTime = function() {
     var timeBlock = $("#time-container");         
-    
     for (var i = 0 ; i < timeBlock.length ; i++) {
         var elementID = timeBlock[i].id;
         var changeClass = document.getElementById(timeBlock[i].id)
-        
         $(timeBlock[i].id).removeClass('.past .present .future');
-
         if (elementID < date) {
             $(changeClass).addClass("past");
         } else if (elementID > date) {
