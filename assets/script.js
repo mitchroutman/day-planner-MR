@@ -15,7 +15,7 @@ function date_time() {
 
 //Change background by time
 var checkTheTime = function() {
-    var timeBlock = $("#time-container");         
+    var timeBlock = $("#0800, #0900, #1000, #1100, #1200, #1300, #1400, #1500, #1600, #1700, #1800, #1900");         
     for (var i = 0 ; i < timeBlock.length ; i++) {
         var elementID = timeBlock[i].id;
         var changeClass = document.getElementById(timeBlock[i].id)
@@ -43,7 +43,7 @@ setInterval(checkTheTime(), (1000 * 60) * 15);
 });
 
 //
-var saveButton = document.querySelector("#time-container");
+var saveButton = document.querySelector(".time-block");
 if (window.localStorage["textarea"]) {
     // console.log("Test")
       saveButton.value = window.localStorage["textarea"];
